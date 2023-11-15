@@ -23,7 +23,7 @@ block content
 				p(align="center"): +Pagination(page, pageCount, 7)
 
 			#NotePreviews.Flexbox.mWrap.mStdSpacing
-				if notes 
+				if notes.length 
 					for note in notes 
 						.NotePreview 
 							- const date = new Date(note.published)
