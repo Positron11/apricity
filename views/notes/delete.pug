@@ -1,0 +1,15 @@
+extends ../layout
+
+append stylesheets 
+	link(rel="stylesheet" href="/stylesheets/forms.css")
+
+block content 
+	.Layout.mSimple
+		div 
+			h1 Delete 
+			p #[b Candidate:] #{note.title}
+			p: small Are you sure you want to do this?
+
+		form(method="post").Flexbox.mVertCenter.mCmpSpacing 
+			a(href=`/notes/${note.slug}`) Go Back
+			button(type="submit").mDanger Delete

@@ -1,0 +1,22 @@
+mixin Pagination(page, pageCount, maxWidth)
+	- width = Math.min(maxWidth, pageCount)
+	- innerWidth = Math.max(width - 2, 0)
+	- pad = Math.floor(innerWidth / 2)
+	- offset = Math.min(pageCount - innerWidth, Math.max(page - pad, 2))
+
+	| #[+Plink(page, pageCount)] 
+	| #{("...").repeat(pageCount - (page + 1) > pad && innerWidth < pageCount - 2)} 
+
+	for i in [...Array(innerWidth).keys()].reverse()
+		| #[+Plink(page, i + offset)] 
+
+	if width > 1
+		| #{("...").repeat(page > pad + 2 && innerWidth < pageCount - 2)} 
+		+Plink(page, 1)
+
+
+mixin Plink(curr, comp)
+	if curr == comp
+		| #[b.tBig= comp]&nbsp; 
+	else
+		| #[a(href=`?page=${comp}`)= comp]&nbsp; 

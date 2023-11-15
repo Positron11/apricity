@@ -1,0 +1,10 @@
+.NotePreview { 
+	width: 20em; 
+	flex: 1 0 auto;
+}
+@media only screen and (max-width: 900px) {.NotePreview { flex-shrink: 1; }}
+
+.NotePreview > .content {
+	padding-left: 1em;
+	border-left: 2px solid;
+}

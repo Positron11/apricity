@@ -1,0 +1,21 @@
+extends ../layout
+
+block content 
+	.Layout.mTwoCol
+		.colOne.Flexbox.mCol.mStdSpacing  
+			div
+				- const date = new Date(note.published)
+				- const dateOptions = { year: "numeric", month: "long", day: "numeric" }
+
+				h1(lang="en")!= note.title
+				p= date.toLocaleString("en-gb", dateOptions)
+
+			if user && user.roles.includes("superuser")
+				fieldset.iAlignLeft 
+					legend: b Actions
+					p 
+						| #[a(href=`${note.slug}/edit`) Edit]&nbsp; 
+						| #[a(href=`${note.slug}/delete`) Delete]
+
+		article.colTwo
+			div!= note.renderContent()

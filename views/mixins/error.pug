@@ -1,0 +1,5 @@
+mixin Error(errors, path)
+	if errors
+		- const error = errors.find(error => error.path == path)
+		if error
+			small.tRed: b &nbsp;#{error.msg}

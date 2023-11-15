@@ -1,0 +1,38 @@
+extends ../layout
+include ../mixins/pagination
+
+append stylesheets 
+	link(rel="stylesheet" href="/stylesheets/notes/index.css")
+
+block content 
+	.Layout.mTwoCol
+		.colOne.Flexbox.mCol.mStdSpacing 
+			div
+				h1 Notes 
+				p A collection of my prose.
+				p: small Sorted in reverse chronological order such that you'll always find a certain note on the same page, even after additions. If the first (actually last) page seems sparse, visit the previous.
+
+			if user && user.roles.includes("superuser")
+				fieldset.iAlignLeft 
+					legend: b Actions
+					p(align="center"): a(href="/notes/create") Create
+		
+		.colTwo.Flexbox.mCol.mStdSpacing
+			fieldset.iAlignLeft
+				legend: b Page
+				p(align="center"): +Pagination(page, pageCount, 7)
+
+			#NotePreviews.Flexbox.mWrap.mStdSpacing
+				if notes 
+					for note in notes 
+						.NotePreview 
+							- const date = new Date(note.published)
+							- const dateOptions = { year: "numeric", month: "short", day: "numeric" }
+							
+							p: a(href=`/notes/${note.slug}`): b!= note.title
+							p: small Meta=[ Date: #{date.toLocaleString("en-gb", dateOptions)} ]
+							
+							p.content!= note.renderPreview()
+				else 
+					p: i Nothing to see here, yet.
+

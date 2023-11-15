@@ -1,0 +1,66 @@
+:root {
+	--red: #f92672;
+	--blue: #66d9ef;
+	--yellow: #e6db74;
+	--fg: #c7c7c2;
+	--bg: #000000;
+
+	--std-spacing: 3rem;
+}
+
+* { box-sizing: border-box; }
+
+body { 
+	font-size: 16px;
+	color: var(--fg);
+	max-width: 3000px;
+	background-color: var(--bg);
+	font-family: 'Sentient', serif;
+	padding: clamp(2em, 5vw, 10em); 
+}
+@media only screen and (max-width: 900px) {body { font-size: 14px; }}
+
+::selection {
+	color: var(--bg);
+	background-color: var(--yellow);
+}
+
+a { color: var(--blue); }
+
+h1, h2, h3, h4, h5, h6, p { 
+	overflow: hidden; 
+	text-overflow: ellipsis;
+}
+
+h1 { font-size: 3.5em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.25em; }
+h5, h6 { font-size: 1em; }
+h6 { font-style: italic; }
+
+ul, ol, p { line-height: 1.75em; }
+
+:is(h1, h2, h3, h4, h5, h6, p, ul, li) + :is(p, ul, ol) { margin-top: 1em; }
+
+article { max-width: 700px; }
+
+.tRed { color: var(--red); }
+.tBig { font-size: larger; }
+
+.Flexbox { display: flex; }
+.FlexBox.mCol { flex-direction: column; }
+
+.Flexbox.mWrap { flex-wrap: wrap; }
+
+.Flexbox.mSpaceBtwn { justify-content: space-between; }
+.Flexbox.mStdSpacing { grid-gap: var(--std-spacing) }
+.Flexbox.mCmpSpacing { grid-gap: calc(var(--std-spacing) / 2) }
+.Flexbox.mMinSpacing { grid-gap: calc(var(--std-spacing) / 4) }
+
+.Flexbox.mVertCenter { align-items: center; }
+
+.Flexbox > .iAlignTop { align-self: flex-start; }
+
+.Flexbox.mCol > .iAlignLeft { align-self: flex-start; }
+.Flexbox.mCol > .iAlignRight { align-self: flex-end; }

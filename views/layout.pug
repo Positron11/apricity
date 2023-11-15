@@ -1,0 +1,43 @@
+html 
+	head 
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		
+		title= title
+		meta(name="author" content="Aarush Kumbhakern")
+
+		link(href="https://api.fontshare.com/v2/css?f[]=sentient@2,1&display=swap" rel="stylesheet")
+
+		block stylesheets 
+			link(rel="stylesheet" href="/stylesheets/reset.css")
+			link(rel="stylesheet" href="/stylesheets/main.css")
+			link(rel="stylesheet" href="/stylesheets/layout.css")
+			link(rel="stylesheet" href="/stylesheets/forms.css")
+
+		block scripts
+
+	body 
+		#TopBar.Flexbox.mSpaceBtwn.mCmpSpacing
+			p#Fluff #[b Apricity] #[small [/ə'prə`sɪtɪ/]] #[i n.] The warmth of the winter sun.
+			
+			fieldset#Navigation.iAlignTop
+				legend: b Navigation
+				nav: p(align="right")
+					| #[a(href="/") Home]&nbsp;  
+					| #[a(href="/notes") Notes]
+
+		#Content: block content
+
+		footer#Footer.Flexbox.mSpaceBtwn.mCmpSpacing 
+			if user
+				form(action=`/logout?next=${url}` method="post"): button(type="submit") Log Out
+			else
+				fieldset 
+					legend: b Auth
+					p
+						| #[a(href=`/login?next=${url}`) Log&nbsp;In]&nbsp; 
+						| #[a(href=`/register?next=${url}`) Register]
+
+			p
+				| Aarush Kumbhakern's #[b Apricity]. #[br]
+				| #[small Do what you will with it.]

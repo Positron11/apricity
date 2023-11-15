@@ -1,0 +1,36 @@
+label {
+	display: block;
+}
+
+input[type="text"], input[type="password"], textarea {
+	min-width: 0;
+	max-width: 100%;
+	border: 2px solid;
+}
+label + :is(input[type="text"], input[type="password"], textarea) { margin-top: 0.5em; }
+:is(input[type="text"], input[type="password"], textarea):focus { border-color: var(--blue); }
+
+input[type="text"], input[type="password"] {
+	width: 25em;
+	padding: 0.5em 1em;
+}
+
+textarea {
+	width: 100%;
+	resize: none;
+	padding: 1em;
+	line-height: 1.5em;
+}
+
+button {
+	cursor: pointer;
+	line-height: 1em;
+	font-weight: bold;
+	font-size: smaller;
+	padding: 1em 1.5em;
+	background-color: var(--fg);
+}
+button.mDanger {
+	color: inherit;
+	background-color: var(--red);
+}

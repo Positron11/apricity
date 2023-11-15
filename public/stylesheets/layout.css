@@ -1,0 +1,30 @@
+#TopBar { margin-bottom: var(--std-spacing); }
+#Fluff { width: 20ch }
+
+#Footer { 
+	border-top: 1px solid;
+	margin-top: var(--std-spacing);
+	padding-top: var(--std-spacing);
+}
+
+.Layout.mSimple {
+	display: flex;
+	max-width: 750px;
+	flex-direction: column;
+	grid-gap: var(--std-spacing);
+}
+
+.Layout.mTwoCol { 
+	display: flex;
+	position: relative;
+	grid-gap: var(--std-spacing);
+}
+@media only screen and (max-width: 900px) {.Layout.mTwoCol { flex-direction: column; }}
+@media only screen and (min-width: 901px) {.Layout.mTwoCol > .colOne {
+	width: 400px;
+	flex-shrink: 0;
+	position: sticky;
+	align-self: flex-start;
+	top: var(--std-spacing);
+	padding-right: var(--std-spacing);
+}}
