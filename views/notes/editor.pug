@@ -14,7 +14,7 @@ block content
 		form#Editor(method="post").Flexbox.mCol.mStdSpacing
 			div
 				label(for="TitleField") #[b Title] #[+Error(errors, "title")]
-				input#TitleField(type="text" name="title" required autofocus value=formData && formData.title)
+				input#TitleField(type="text" name="title" autocomplete="off" required autofocus value=formData && formData.title)
 
 			div
 				label(for="ContentField") #[b Content] #[+Error(errors, "content")]
