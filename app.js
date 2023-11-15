@@ -20,9 +20,13 @@ const User = require("./models/user");
 const app = express();
 
 const mongoose = require("mongoose");
-mongoose.set("strictQuery", false);
-main().catch((err) => console.log(err));
-async function main() { await mongoose.connect(process.env.MONGODB_URL); }
+mongoose.set('strictQuery', false);
+const connect_db = async () => { return await mongoose.connect(process.env.MONGODB_URL); }
+
+connect_db().then(conn => {
+	console.log(`MongoDB connected: ${conn.connection.host}`);
+	app.listen(() => console.log("Listening for requests"));
+}).catch(err => console.log(err));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
