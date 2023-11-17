@@ -47,6 +47,8 @@ ul, ol, p { line-height: 1.75em; }
 
 article { max-width: 700px; }
 
+fieldset { border: 1px solid; }
+
 .tRed { color: var(--red); }
 .tBig { font-size: larger; }
 
