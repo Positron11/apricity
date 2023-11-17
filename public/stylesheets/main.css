@@ -41,7 +41,7 @@ h4 { font-size: 1.25em; }
 h5, h6 { font-size: 1em; }
 h6 { font-style: italic; }
 
-ul, ol, p { line-height: 1.75em; }
+ul, ol, p { line-height: 1.6em; }
 
 :is(h1, h2, h3, h4, h5, h6, p, ul, li) + :is(p, ul, ol) { margin-top: 1em; }
 
