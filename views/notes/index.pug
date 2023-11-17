@@ -30,7 +30,7 @@ block content
 							- const dateOptions = { year: "numeric", month: "short", day: "numeric" }
 							
 							p: a(href=`/notes/${note.slug}`): b!= note.title
-							p: small Meta=[ Date: #{date.toLocaleString("en-gb", dateOptions)} ]
+							p: small Published on #{date.toLocaleString("en-gb", dateOptions)}
 							
 							p.content!= note.renderPreview()
 				else 
