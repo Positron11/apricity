@@ -18,7 +18,7 @@ body {
 	padding: clamp(2em, 5vw, 10em); 
 	font-family: "Author", sans-serif;
 }
-@media only screen and (max-width: 900px) {body { font-size: 14px; }}
+@media only screen and (max-width: 900px) {body { font-size: 16px; }}
 
 ::selection {
 	color: var(--bg);
