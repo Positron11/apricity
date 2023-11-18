@@ -56,6 +56,13 @@ fieldset { border: 1px solid; }
 .tRed { color: var(--red); }
 .tBig { font-size: larger; }
 
+.uTruncateLines {
+	overflow: hidden;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--lines);
+}
+
 .Flexbox { display: flex; }
 .FlexBox.mCol { flex-direction: column; }
 
