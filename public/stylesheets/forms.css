@@ -6,6 +6,7 @@ input[type="text"], input[type="password"], textarea {
 	min-width: 0;
 	max-width: 100%;
 	border: 1px solid;
+	border-left-width: 5px;
 }
 label + :is(input[type="text"], input[type="password"], textarea) { margin-top: 0.5em; }
 :is(input[type="text"], input[type="password"], textarea):focus { border-color: var(--blue); }
