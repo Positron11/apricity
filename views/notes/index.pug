@@ -10,7 +10,7 @@ block content
 			div
 				h1 Notes 
 				p A collection of my prose.
-				p: small Sorted in reverse chronological order such that you'll always find a certain note on the same page, even after additions. If the first (actually last) page seems sparse, visit the previous.
+				p.tSmall Sorted in reverse chronological order such that you'll always find a certain note on the same page, even after additions. If the first (actually last) page seems sparse, visit the previous.
 
 			if user && user.roles.includes("superuser")
 				fieldset.iAlignLeft 
@@ -29,8 +29,8 @@ block content
 							- const date = new Date(note.published)
 							- const dateOptions = { year: "numeric", month: "short", day: "numeric" }
 							
-							p: a(href=`/notes/${note.slug}`): b!= note.title
-							p: small Published on #{date.toLocaleString("en-gb", dateOptions)}
+							p: b: a(href=`/notes/${note.slug}`)!= note.title
+							p.tSmall Published on #{date.toLocaleString("en-gb", dateOptions)}
 							
 							p.content.uTruncateLines(style="--lines: 5")!= note.renderPreview()
 				else 
