@@ -21,7 +21,7 @@ html
 			p#Fluff #[b Apricity] #[small [/ə'prə`sɪtɪ/]] #[i n.] The warmth of the winter sun.
 			
 			fieldset#Navigation.iAlignTop
-				legend: b Navigation
+				legend Navigation
 				nav: p(align="right")
 					| #[a(href="/") Home]&nbsp;  
 					| #[a(href="/notes") Notes]
@@ -33,7 +33,7 @@ html
 				form(action=`/logout?next=${url}` method="post"): button(type="submit") Log Out
 			else
 				fieldset 
-					legend: b Auth
+					legend Auth
 					p
 						| #[a(href=`/login?next=${url}`) Log&nbsp;In]&nbsp; 
 						| #[a(href=`/register?next=${url}`) Register]

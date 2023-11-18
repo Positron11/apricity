@@ -56,7 +56,15 @@ ul, ol, p { line-height: 1.6em; }
 
 article { max-width: 700px; }
 
-fieldset { border: 1px solid; }
+fieldset { 
+	border: 1px solid; 
+	position: relative;
+	border-top-width: 5px;
+}
+legend { 
+	padding: 0 0.5em; 
+	font-weight: bold;
+}
 
 .tRed { color: var(--red); }
 .tBig { font-size: 1.2em; }

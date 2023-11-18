@@ -14,12 +14,12 @@ block content
 
 			if user && user.roles.includes("superuser")
 				fieldset.iAlignLeft 
-					legend: b Actions
+					legend Actions
 					p(align="center"): a(href="/notes/create") Create
 		
 		.colTwo.Flexbox.mCol.mStdSpacing
 			fieldset.iAlignLeft
-				legend: b Page
+				legend Page
 				p(align="center"): +Pagination(page, pageCount, 7)
 
 			#NotePreviews.Flexbox.mWrap.mStdSpacing
