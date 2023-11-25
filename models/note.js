@@ -33,7 +33,8 @@ NoteSchema.methods.renderContent = function() {
 }
 
 NoteSchema.methods.renderPreview = function() {
-	return md.renderInline(this.preview);
+	md.render(this.preview);
+	return md.plainText;
 }
 
 module.exports = mongoose.model("Note", NoteSchema);
