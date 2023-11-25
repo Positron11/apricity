@@ -9,7 +9,7 @@ input[type="text"], input[type="password"], textarea {
 	border-left-width: 5px;
 }
 label + :is(input[type="text"], input[type="password"], textarea) { margin-top: 0.5em; }
-:is(input[type="text"], input[type="password"], textarea):focus { border-color: var(--blue); }
+:is(input[type="text"], input[type="password"], textarea):focus { border-left-color: var(--blue); }
 
 input[type="text"], input[type="password"] {
 	width: 25em;
