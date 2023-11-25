@@ -26,8 +26,9 @@ textarea {
 button {
 	cursor: pointer;
 	line-height: 1em;
-	font-weight: 600;
-	padding: 0.75em 1em;
+	font-size: 0.9em;
+	font-weight: 700;
+	padding: 1em 1.25em;
 	background-color: var(--fg);
 }
 button.mDanger {
