@@ -5,7 +5,7 @@ const he = require("he");
 const Note = require("../models/note");
 
 exports.index = (req, res, next) => {
-	const perPage = 9;
+	const perPage = 10;
 	Note.countDocuments({})
 	.then(count => {
 		const paginateOptions = {
