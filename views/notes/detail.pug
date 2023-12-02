@@ -17,5 +17,4 @@ block content
 						| #[a(href=`${note.slug}/edit`) Edit]&nbsp; 
 						| #[a(href=`${note.slug}/delete`) Delete]
 
-		article.colTwo
-			div!= note.renderContent()
+		article.colTwo!= note.renderContent()

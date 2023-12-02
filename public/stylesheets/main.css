@@ -54,6 +54,8 @@ ul, ol, p { line-height: 1.8em; }
 
 article { max-width: 700px; }
 
+article > p { text-align: justify; }
+
 fieldset { 
 	border: 1px solid; 
 	position: relative;
