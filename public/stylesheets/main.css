@@ -95,3 +95,8 @@ b { font-weight: 800; }
 
 .Flexbox.mCol > .iAlignLeft { align-self: flex-start; }
 .Flexbox.mCol > .iAlignRight { align-self: flex-end; }
+
+.uPolka { 
+	background-size: 10px 10px;
+	background-image: radial-gradient(#ffffff22 1px, transparent 1px);
+}
