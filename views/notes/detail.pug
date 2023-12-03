@@ -17,4 +17,4 @@ block content
 						| #[a(href=`${note.slug}/edit`) Edit]&nbsp; 
 						| #[a(href=`${note.slug}/delete`) Delete]
 
-		article.colTwo!= note.renderContent()
+		article.colTwo.uPolka!= note.renderContent()
