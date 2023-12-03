@@ -31,7 +31,7 @@ html(lang="en")
 
 		#Content: block content
 
-		footer#Footer.Flexbox.mSpaceBtwn.mCmpSpacing 
+		footer#Footer.Flexbox.mSpaceBtwn.mCmpSpacing.mVertEnd
 			if user
 				form(action=`/logout?next=${url}` method="post"): button(type="submit") Log Out
 			else
@@ -41,6 +41,6 @@ html(lang="en")
 						| #[a(href=`/login?next=${url}`) Log&nbsp;In]&nbsp; 
 						| #[a(href=`/register?next=${url}`) Register]
 
-			p
+			p(align="right")#Blurb
 				| Aarush Kumbhakern's #[b Apricity]. #[br]
 				| #[span.tSmall Do what you will with it.]

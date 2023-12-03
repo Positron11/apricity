@@ -4,7 +4,11 @@
 #Footer { 
 	border-top: 1px solid;
 	margin-top: var(--std-spacing);
-	padding-top: var(--std-spacing);
+}
+
+#Blurb { 
+	padding-top: 1em;
+	border-top: 5px solid;
 }
 
 .Layout.mSimple {

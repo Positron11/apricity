@@ -90,6 +90,7 @@ b { font-weight: 800; }
 .Flexbox.mMinSpacing { grid-gap: calc(var(--std-spacing) / 4) }
 
 .Flexbox.mVertCenter { align-items: center; }
+.Flexbox.mVertEnd { align-items: flex-end; }
 
 .Flexbox > .iAlignTop { align-self: flex-start; }
 
