@@ -52,7 +52,7 @@ ul, ol, p { line-height: 1.8em; }
 
 :is(h1, h2, h3, h4, h5, h6, p, ul, li) + :is(p, ul, ol) { margin-top: 1em; }
 
-article { max-width: 700px; }
+article { max-width: 800px; }
 
 article > p { text-align: justify; }
 
