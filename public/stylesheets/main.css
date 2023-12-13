@@ -94,6 +94,7 @@ b { font-weight: 800; }
 
 .Flexbox > .iAlignTop { align-self: flex-start; }
 
+.Flexbox > .iAlignRight { margin-left: auto; }
 .Flexbox.mCol > .iAlignLeft { align-self: flex-start; }
 .Flexbox.mCol > .iAlignRight { align-self: flex-end; }
 
