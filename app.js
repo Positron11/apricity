@@ -62,6 +62,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
+	res.locals.status = err.status;
 	res.locals.message = err.message;
 	res.locals.error = req.app.get("env") === "development" ? err : {};
 
