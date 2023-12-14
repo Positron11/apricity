@@ -4,7 +4,9 @@ h1, h2, h3, h4, h5, h6 { margin: 0; }
 
 p, ul, ol { margin: 0 }
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"], 
+input[type="password"], 
+textarea {
 	border: none;
 	outline: none;
 	color: inherit;

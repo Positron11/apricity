@@ -1,34 +1,98 @@
-#TopBar { margin-bottom: var(--std-spacing); }
-#Fluff { width: 20ch }
+#Page {
+	display: grid;
+	grid-template: 
+		"topbar topbar topbar"
+		"navbar content sidebar"
+		"footer footer footer"
+		/ auto 1fr 270px;
+}
+@media only screen and (max-width: 1000px) {#Page {  
+	grid-template: 
+		"topbar topbar"
+		"navbar navbar"
+		"content sidebar"
+		"footer footer"
+		/ auto 230px;
+}}
+@media only screen and (max-width: 850px) {#Page {  
+	grid-template: 
+		"topbar"
+		"navbar"
+		"content"
+		"footer"
+		/ auto;
+}}
+
+#Topbar { 
+	grid-area: topbar;
+	border-bottom: 1px dotted; 
+	margin-bottom: var(--std-spacing);
+	padding-bottom:var(--cmp-spacing);
+}
+@media only screen and (max-width: 1000px) {#Topbar { margin-bottom: var(--min-spacing); }}
+@media only screen and (max-width: 850px) {#Topbar { justify-content: space-between; }}
+
+#Graphic {
+	width: 10em;
+	user-select: none;
+	margin-left: -4em;
+	transition: 0.3s ease;
+}
+@media only screen and (max-width: 1250px) {#Graphic {  
+	margin: 0 -2em 0 -1em;
+	transform: scaleX(-1);
+}}
+@media only screen and (max-width: 850px) {#Graphic { width: 8em; }}
+
+@media only screen and (max-width: 850px) {#Hero { text-align: right; }}
+
+#Hero > .name { margin-left: 1em; }
+#Hero > .title { font-size: 2.5em; }
+#Hero > .definition { margin-top: 0.6em; }
+#Hero > .definition > .phonetic { letter-spacing: 0.05em; }
+
+#Navbar { grid-area: navbar; }
+@media only screen and (min-width: 1001px) {#Navbar {  
+	position: sticky;
+	align-self: flex-start; 
+	top: var(--std-spacing);
+	margin-right: var(--std-spacing);
+}}
+@media only screen and (max-width: 1000px) {#Navbar { margin-bottom: var(--cmp-spacing); }}
+
+@media only screen and (max-width: 1000px) {#Navbar > .Box > .label { display: none; }}
+@media only screen and (min-width: 1001px) {#Navbar > .Box > .links { flex-direction: column; }}
+
+@media only screen and (max-width: 1000px) {#Sitenav {  
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px dotted;
+	justify-content: flex-end;
+	padding: 0 0 var(--min-spacing) 0;
+}}
+@media only screen and (max-width: 1000px) {#Sitenav > .links { justify-content: flex-end;}}
+
+@media only screen and (max-width: 1000px) {#Actions { 
+	align-self: flex-start;
+	padding: var(--min-spacing);
+}}
+@media only screen and (max-width: 1000px) {#Jumper { display: none; }}
+
+#Sidebar {
+	padding: 1em;
+	grid-area: sidebar; 
+	background-size: 1.1em 1.1em;
+	margin-left: var(--std-spacing);
+	background-image: url("/images/pindots.svg");
+}
+@media only screen and (max-width: 1000px) {#Sidebar { margin: -4.5em 0 0 var(--cmp-spacing); }}
+@media only screen and (max-width: 850px) {#Sidebar { display: none; }}
+
+#Content { grid-area: content; }
 
 #Footer { 
-	border-top: 1px solid;
-	margin-top: var(--std-spacing);
+	padding-top: 2em;
+	grid-area: footer; 
+	border-top: 1px dotted;
+	margin-top: var(--cmp-spacing);
 }
-
-#Blurb { 
-	padding-top: 1em;
-	border-top: 5px solid;
-}
-
-.Layout.mSimple {
-	display: flex;
-	max-width: 750px;
-	flex-direction: column;
-	grid-gap: var(--std-spacing);
-}
-
-.Layout.mTwoCol { 
-	display: flex;
-	position: relative;
-	grid-gap: var(--std-spacing);
-}
-@media only screen and (max-width: 900px) {.Layout.mTwoCol { flex-direction: column; }}
-@media only screen and (min-width: 901px) {.Layout.mTwoCol > .colOne {
-	width: 350px;
-	flex-shrink: 0;
-	position: sticky;
-	align-self: flex-start;
-	top: var(--std-spacing);
-	padding-right: var(--std-spacing);
-}}

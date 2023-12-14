@@ -1,11 +1,13 @@
-.NotePreview { 
-	width: 300px; 
-	flex: 1 0 auto;
+#Pagination {
+	height: 0.3em;
+	text-align: center;
+	border-top: 1px dotted;
+	background-color: var(--bg);
 }
-@media only screen and (max-width: 900px) {.NotePreview { flex-shrink: 1; }}
 
-.NotePreview > .content {
-	margin-top: 1em;
-	border-left: 4px solid;
-	padding: 1em 1em 1em 1.5em;
+#Pagination > .links {
+	padding: 0 1em;
+	display: inline-block;
+	background-color: var(--bg);
+	transform: translateY(-1em);
 }

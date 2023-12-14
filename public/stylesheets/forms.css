@@ -1,19 +1,20 @@
-label {
-	display: block;
-}
+label { display: block; }
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"], 
+input[type="password"], 
+textarea {
 	min-width: 0;
 	max-width: 100%;
-	border: 1px solid;
-	border-left-width: 5px;
+	font-size: 0.97em;
+	border: 1px dotted;
+	border-radius: 0.2em;
 }
 label + :is(input[type="text"], input[type="password"], textarea) { margin-top: 0.5em; }
-:is(input[type="text"], input[type="password"], textarea):focus { border-left-color: var(--blue); }
 
-input[type="text"], input[type="password"] {
-	width: 25em;
-	padding: 0.5em 1em;
+input[type="text"], 
+input[type="password"] {
+	width: 20em;
+	padding: 0.5em 0.7em;
 }
 
 textarea {
@@ -25,13 +26,12 @@ textarea {
 
 button {
 	cursor: pointer;
+	color: var(--bg);
 	line-height: 1em;
-	font-size: 0.9em;
-	font-weight: 700;
-	padding: 1em 1.25em;
+	font-weight: 500;
+	padding: 0.7em 1em;
+	border-radius: 0.2em;
 	background-color: var(--fg);
 }
-button.mDanger {
-	color: inherit;
-	background-color: var(--red);
-}
+button[type="submit"] { background-color: var(--green); }
+button.mDanger { background-color: var(--red); }

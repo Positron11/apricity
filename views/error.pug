@@ -1,5 +1,8 @@
 extends layout 
 
-block content 
-	h1 Error #{error.status}
-	p #[b Message:] #{error.message}
+block content
+	div
+		h1 Error #{error.status}
+		p.tGray Error message: #{error.message}
+
+	img(src="/images/flower-3.svg", width="150px")

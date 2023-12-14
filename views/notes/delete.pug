@@ -4,12 +4,10 @@ append stylesheets
 	link(rel="stylesheet" href="/stylesheets/forms.css")
 
 block content 
-	.Layout.mSimple
-		div 
-			h1 Delete 
-			p #[b Candidate:] !{note.title}
-			p.tSmall Are you sure you want to do this?
+	div 
+		h1 Delete 
+		p.tGray Are you sure you want to delete "!{note.title}"?
 
-		form(method="post").Flexbox.mVertCenter.mCmpSpacing 
-			a(href=`/notes/${note.slug}`) Go Back
-			button(type="submit").mDanger Delete
+	form(method="post").Flexbox.mVertCenter.mCmpSpacing 
+		a(href=`/notes/${note.slug}`) Go Back
+		button(type="submit").mDanger Delete

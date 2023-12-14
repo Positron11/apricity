@@ -4,35 +4,31 @@ include ../mixins/pagination
 append stylesheets 
 	link(rel="stylesheet" href="/stylesheets/notes/index.css")
 
+block controlvars 
+	- var actions = true;
+
+block actions 
+	a(href="/notes/create") Create
+
+
 block content 
-	.Layout.mTwoCol
-		.colOne.Flexbox.mCol.mStdSpacing 
-			div
-				h1 Notes 
-				p A collection of my prose.
-				p.tSmall Sorted in reverse chronological order such that you'll always find a certain note on the same page, even after additions. If the first (actually last) page seems sparse, visit the previous.
+	div
+		h1 Notes 
+		p.tGray A collection of my prose.
 
-			if user && user.roles.includes("superuser")
-				fieldset.iAlignLeft 
-					legend Actions
-					p(align="center"): a(href="/notes/create") Create
+	#Pagination: .links: +Pagination(page, pageCount, 7)
+
+	#NotePreviews.Flexbox.mWrap.mCmpSpacing
+		if notes.length 
+			for note in notes 
+				.NotePreview
+					- const date = new Date(note.published)
+					- const dateOptions = { year: "numeric", month: "short", day: "numeric" }
+					
+					p #[b: a(href=`/notes/${note.slug}`)!= note.title] &nbsp; #[span.tSmall.tGray Published on #{date.toLocaleString("en-gb", dateOptions)}]
+					
+					p(align="justify").uTruncateLines(style="--lines: 3")!= note.renderPreview()
 		
-		.colTwo.Flexbox.mCol.mStdSpacing
-			fieldset.iAlignLeft
-				legend Page
-				p(align="center"): +Pagination(page, pageCount, 7)
-
-			#NotePreviews.Flexbox.mWrap.mStdSpacing
-				if notes.length 
-					for note in notes 
-						.NotePreview 
-							- const date = new Date(note.published)
-							- const dateOptions = { year: "numeric", month: "short", day: "numeric" }
-							
-							p: b: a(href=`/notes/${note.slug}`)!= note.title
-							p.tSmall Published on #{date.toLocaleString("en-gb", dateOptions)}
-							
-							.content.uPolka: p(align="justify").uTruncateLines(style="--lines: 5")!= note.renderPreview()
-				else 
-					p: i Nothing to see here, yet.
+		else 
+			p.tGray Nothing to see here yet...
 

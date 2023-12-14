@@ -3,22 +3,21 @@ extends ../layout
 include ../mixins/error
 
 block content 
-	.Layout.mSimple
+	div
+		h1 Register
+		p.tGray If you already have an account, #[a(href="/login") log in].
+
+	form(method="post").Flexbox.mCol.mStdSpacing 
 		div
-			h1 Register
-			p If you already have an account, #[a(href="/login") log in].
+			label(for="UsernameField") #[b Username] #[+Error(errors, "username")]
+			input#UsernameField(type="text", name="username")
 
-		form(method="post").Flexbox.mCol.mStdSpacing 
-			div
-				label(for="UsernameField") #[b Username] #[+Error(errors, "username")]
-				input#UsernameField(type="text", name="username")
+		div
+			label(for="PasswordField") #[b Password] #[+Error(errors, "password")]
+			input#PasswordField(type="password", name="password")
 
-			div
-				label(for="PasswordField") #[b Password] #[+Error(errors, "password")]
-				input#PasswordField(type="password", name="password")
+		div
+			label(for="ConfirmField") #[b Confirm Password] #[+Error(errors, "confirm")]
+			input#ConfirmField(type="password", name="confirm")
 
-			div
-				label(for="ConfirmField") #[b Confirm Password] #[+Error(errors, "confirm")]
-				input#ConfirmField(type="password", name="confirm")
-
-			button(type="submit").iAlignRight Register
+		button(type="submit").iAlignRight Register

@@ -5,20 +5,27 @@ include ../mixins/error
 append scripts
 	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
 
+block controlvars 
+	- var jumpers = true;
+
+block jumpers 
+	a(href="#title") Title
+	a(href="#content") Content
+	a(href="#submit") Submit
+
 block content 
-	.Layout.mSimple
-		div
-			h1 Editor 
-			p #[b Action:] #{action == "Create" ? "Create new note" : `Editing "${formData && formData.title}"`}
+	div
+		h1 Editor 
+		p #{action == "Create" ? "Create new note" : `Editing "${formData && formData.title}"`}
 
-		form#Editor(method="post").Flexbox.mCol.mStdSpacing
-			div
-				label(for="TitleField") #[b Title] #[+Error(errors, "title")]
-				input#TitleField(type="text" name="title" autocomplete="off" required autofocus value=formData && formData.title)
+	form#Editor(method="post").Flexbox.mCol.mStdSpacing
+		div#title
+			label(for="TitleField") #[b Title] #[+Error(errors, "title")]
+			input#TitleField(type="text" name="title" autocomplete="off" required autofocus value=formData && formData.title)
 
-			div
-				label(for="ContentField") #[b Content] #[+Error(errors, "content")]
-				textarea#ContentField(name="content" rows="10" resize="false" required)!= formData && formData.content
+		div#content
+			label(for="ContentField") #[b Content] #[+Error(errors, "content")]
+			textarea#ContentField(name="content" rows="10" resize="false" required)!= formData && formData.content
 
-			button(type="submit").iAlignRight= action
+		button(type="submit")#submit.iAlignRight= action
 			

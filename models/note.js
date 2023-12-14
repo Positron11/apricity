@@ -19,7 +19,7 @@ const NoteSchema = new Schema({
 NoteSchema.plugin(mongoosePaginate);
 
 NoteSchema.virtual("preview").get(function() {
-	return (this.content).slice(0, 500) + (" ...").repeat(this.content.length > 500);
+	return (this.content).slice(0, 300) + (" ...").repeat(this.content.length > 500);
 });
 
 NoteSchema.pre("validate", function(next) {

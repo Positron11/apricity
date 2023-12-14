@@ -1,20 +1,18 @@
 extends ../layout
 
+block controlvars 
+	- var actions = true;
+
+block actions 
+	a(href=`${note.slug}/edit`) Edit
+	a(href=`${note.slug}/delete`) Delete
+
 block content 
-	.Layout.mTwoCol
-		.colOne.Flexbox.mCol.mStdSpacing  
-			div
-				- const date = new Date(note.published)
-				- const dateOptions = { year: "numeric", month: "long", day: "numeric" }
+	div
+		h1(lang="en")!= note.title
+		
+		- const date = new Date(note.published)
+		- const dateOptions = { year: "numeric", month: "long", day: "numeric" }
+		p.tGray= date.toLocaleString("en-gb", dateOptions)
 
-				h1(lang="en")!= note.title
-				p= date.toLocaleString("en-gb", dateOptions)
-
-			if user && user.roles.includes("superuser")
-				fieldset.iAlignLeft 
-					legend Actions
-					p 
-						| #[a(href=`${note.slug}/edit`) Edit]&nbsp; 
-						| #[a(href=`${note.slug}/delete`) Delete]
-
-		article.colTwo.uPolka!= note.renderContent()
+	article!= note.renderContent()

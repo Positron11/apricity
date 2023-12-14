@@ -4,34 +4,68 @@ html(lang="en")
 		meta(lang="utf-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		
-		meta(name="theme-color" content="#030303")
+		meta(name="theme-color" content="#dbdbd6")
 		
 		title!= title
 		meta(name="author" content="Aarush Kumbhakern")
 		meta(name="description", content="Aarush Kumbhakern's personal website")
 
-		block stylesheets 
-			link(rel="stylesheet" href="/stylesheets/reset.css")
-			link(rel="stylesheet" href="/stylesheets/inter.css")
-			link(rel="stylesheet" href="/stylesheets/main.css")
-			link(rel="stylesheet" href="/stylesheets/layout.css")
-			link(rel="stylesheet" href="/stylesheets/forms.css")
+		link(rel="preconnect" href="https://fonts.googleapis.com")
+		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet")
+
+		block stylesheets
+			link(rel="stylesheet", href="/stylesheets/reset.css")
+			link(rel="stylesheet", href="/stylesheets/main.css")
+			link(rel="stylesheet", href="/stylesheets/garamond.css")
+			link(rel="stylesheet", href="/stylesheets/flexbox.css")
+			link(rel="stylesheet", href="/stylesheets/layout.css")
+			link(rel="stylesheet", href="/stylesheets/forms.css")
 
 		block scripts
 
-	body 
-		#TopBar.Flexbox.mSpaceBtwn.mCmpSpacing
-			p#Fluff #[b Apricity] #[small [uh-pri-city]] #[i n.] #[small The warmth of the winter sun.]
-			
-			fieldset#Navigation.iAlignTop
-				legend Navigation
-				nav: p(align="right")
-					| #[a(href="/") Home]&nbsp;  
-					| #[a(href="/notes") Notes]
+	body
+		block controlvars 
+		
+		#top
 
-		#Content: block content
+		if user && user.roles.includes("superuser")
+			.Flexbox
+				form#Logout(action="/logout", method="post").iAlignRight
+					button(type="submit").mDanger Log Out
 
-		footer#Footer.Flexbox
-			.iAlignRight: p(align="right")#Blurb
-				| Aarush Kumbhakern's #[b Apricity]. #[br]
-				| #[span.tSmall Do what you will with it.]
+		#Page 
+			#Topbar.Flexbox
+				img#Graphic(src="/images/flower-1.svg")
+				
+				header#Hero.iAlignBtm
+					.name.tSmall Aarush Kumbhakern's
+					.title Apricity
+					.definition.tGray.tSmall [#[span.phonetic əpɹɪsəti]] #[i n.] The warmth of the winter sun.
+
+			#Navbar.Flexbox.mCol.mCmpSpacing
+				nav#Sitenav.Box.mRoomy 
+					.label Navigate
+
+					.links.Flexbox.mMinSpacing
+						a(href="/") Home
+						a(href="/notes") Notes
+						a(href="/about") About
+						a(href="/about") Now
+
+				if jumpers
+					#Jumper.Box.mRoomy
+						.label Jump
+						.links.Flexbox.mMinSpacing: block jumpers
+
+				if actions && user && user.roles.includes("superuser")
+					#Actions.Box.mRoomy
+						.label Actions
+						.links.Flexbox.mMinSpacing: block actions
+
+			#Sidebar: block sidebar
+
+			main#Content.Flexbox.mCol.mStdSpacing: block content
+
+			footer#Footer.Flexbox 
+				.iAlignRight.Box Go back to the #[a(href="#top"): b top].
