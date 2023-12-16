@@ -21,10 +21,7 @@
 
 * { box-sizing: border-box; }
 
-html { 
-	scroll-behavior: smooth;
-	scroll-padding-top: 1em; 
-}
+html { scroll-padding-top: 1em; }
 
 body { 
 	margin: auto;
