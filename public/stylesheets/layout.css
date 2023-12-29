@@ -33,20 +33,14 @@
 @media only screen and (max-width: 850px) {#Topbar { justify-content: space-between; }}
 
 #Graphic {
-	width: 10em;
+	height: 10em;
 	user-select: none;
-	margin-left: -4em;
-	transition: 0.3s ease;
+	margin: 0 -1em 0 -1em;
 }
-@media only screen and (max-width: 1250px) {#Graphic {  
-	margin: 0 -2em 0 -1em;
-	transform: scaleX(-1);
-}}
-@media only screen and (max-width: 850px) {#Graphic { width: 8em; }}
 
 @media only screen and (max-width: 850px) {#Hero { text-align: right; }}
 
-#Hero > .name { margin-left: 1em; }
+#Hero > .name { margin-left: 1.25em; }
 #Hero > .title { font-size: 2.5em; }
 #Hero > .definition { margin-top: 0.6em; }
 #Hero > .definition > .phonetic { letter-spacing: 0.05em; }
