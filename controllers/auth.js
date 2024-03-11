@@ -18,8 +18,12 @@ exports.registration_post = [
 
 	body("password", "Password too short - length > 7").isLength({ min: 8 }),
 
-	body("confirm").custom((value, {req, loc, path}) => {
-		return value == req.body.password || Promise.reject("Password confirmation doesn't match.");
+	body("confirm", "Password doesn't match.").custom((value, {req, loc, path}) => {
+		return value == req.body.password || Promise.reject();
+	}),
+
+	body("captcha", "Incorrect captcha response.").trim().custom((value, {req, loc, path}) => {
+		return value == eval(req.body.captchaQuestion) || Promise.reject();
 	}),
 	
 	(req, res, next) => {

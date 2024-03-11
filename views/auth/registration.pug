@@ -2,6 +2,12 @@ extends ../layout
 
 include ../mixins/error
 
+append stylesheets 
+	link(rel="stylesheet", href="/stylesheets/auth/registration.css")
+
+append scripts 
+	script(type="text/javascript", src="/javascripts/auth/registration.js", defer)
+
 block content 
 	div
 		h1 Register
@@ -19,5 +25,11 @@ block content
 		div
 			label(for="ConfirmField") #[b Confirm Password] #[+Error(errors, "confirm")]
 			input#ConfirmField(type="password", name="confirm")
+
+		div
+			label(for="CaptchaField") #[b Captcha] #[+Error(errors, "captcha")]
+			input#CaptchaField(type="text", name="captcha")
+
+		input#CaptchaQuestion(type="hidden", name="captchaQuestion")
 
 		button(type="submit").iAlignRight Register

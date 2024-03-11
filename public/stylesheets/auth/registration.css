@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "ZXX";
+    src: url("../../fonts/ZXX/zxx.ttf");
+}
+
+#CaptchaField::placeholder {
+	font-family: "ZXX";
+	font-size: 0.8em;
+}
