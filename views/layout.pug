@@ -24,24 +24,29 @@ html(lang="en")
 
 		block scripts
 
+		script: let FF_FOUC_FIX;
+
 	body
 		block controlvars 
-		
+
 		#top
 
-		if user && user.roles.includes("superuser")
-			.Flexbox
-				form#Logout(action="/logout", method="post").iAlignRight
-					button(type="submit").mDanger Log Out
-
 		#Page 
-			#Topbar.Flexbox
-				img#Graphic(src="/images/flower-1.svg")
+			header#Topbar
+				#Hero.Flexbox.mSpaceBtwn
+					div
+						.name.tSmall Aarush Kumbhakern's
+						.title Apricity
+
+					#Authentication
+						if user
+							form#Logout(action=`/logout?next=${url}`, method="post").iAlignRight
+								button(type="submit").mDanger Log Out
+						else
+							.Box #[a(href=`/login?next=${url}`): b Log In] / #[a(href=`/register?next=${url}`) Register]
 				
-				header#Hero.iAlignBtm
-					.name.tSmall Aarush Kumbhakern's
-					.title Apricity
-					.definition.tGray.tSmall [#[span.phonetic əpɹɪsəti]] #[i n.] The warmth of the winter sun.
+				#Definition.tGray.tSmall [#[span.phonetic əpɹɪsəti]] #[i n.] The warmth of the winter sun.
+
 
 			#Navbar.Flexbox.mCol.mCmpSpacing
 				nav#Sitenav.Box.mRoomy 

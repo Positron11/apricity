@@ -7,7 +7,7 @@ block content
 		h1 Log In
 		p.tGray If haven't already created an account, #[a(href="/register") register].
 
-	form(method="post").Flexbox.mCol.mStdSpacing 
+	form(method="post").Flexbox.mCol.mCmpSpacing 
 		div
 			label(for="UsernameField") #[b Username] #[+Error(errors, "username")]
 			input#UsernameField(type="text", name="username")

@@ -32,18 +32,11 @@
 @media only screen and (max-width: 1000px) {#Topbar { margin-bottom: var(--min-spacing); }}
 @media only screen and (max-width: 850px) {#Topbar { justify-content: space-between; }}
 
-#Graphic {
-	height: 10em;
-	user-select: none;
-	margin: 0 -1em 0 -1em;
-}
+#Hero .name { margin-left: 0.5em; }
+#Hero .title { font-size: 2.5em; }
 
-@media only screen and (max-width: 850px) {#Hero { text-align: right; }}
-
-#Hero > .name { margin-left: 1.25em; }
-#Hero > .title { font-size: 2.5em; }
-#Hero > .definition { margin-top: 0.6em; }
-#Hero > .definition > .phonetic { letter-spacing: 0.05em; }
+#Definition { margin-top: 0.6em; }
+#Definition > .phonetic { letter-spacing: 0.05em; }
 
 #Navbar { grid-area: navbar; }
 @media only screen and (min-width: 1001px) {#Navbar {  
@@ -77,7 +70,8 @@
 	grid-area: sidebar; 
 	background-size: 1.1em 1.1em;
 	margin-left: var(--std-spacing);
-	background-image: url("/images/pindots.svg");
+	background-image: radial-gradient(var(--fg) 0.6px, transparent 0.6px);
+	background-size: 9px 9px;
 }
 @media only screen and (max-width: 1000px) {#Sidebar { margin: -4.5em 0 0 var(--cmp-spacing); }}
 @media only screen and (max-width: 850px) {#Sidebar { display: none; }}

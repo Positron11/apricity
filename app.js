@@ -61,6 +61,13 @@ app.use(function(req, res, next) {
 	next(createError(404));
 });
 
+app.use(function(req, res, next) {
+	res.locals.protocol = req.protocol;
+	res.locals.host = req.get("host");
+	res.locals.url = (new URL(req.originalUrl || req.url)).pathname;
+	return next();
+});
+
 app.use(function(err, req, res, next) {
 	res.locals.status = err.status;
 	res.locals.message = err.message;

@@ -18,7 +18,7 @@ block content
 		h1 Editor 
 		p #{action == "Create" ? "Create new note" : `Editing "${formData && formData.title}"`}
 
-	form#Editor(method="post").Flexbox.mCol.mStdSpacing
+	form#Editor(method="post").Flexbox.mCol.mCmpSpacing
 		div#title
 			label(for="TitleField") #[b Title] #[+Error(errors, "title")]
 			input#TitleField(type="text" name="title" autocomplete="off" required autofocus value=formData && formData.title)

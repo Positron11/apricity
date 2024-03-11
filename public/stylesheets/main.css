@@ -14,7 +14,7 @@
 }
 
 :focus { 
-	outline-offset: 0.25em;
+	outline-offset: 0.2em;
 	border-radius: 0.01em;
 	outline: 1px dashed var(--blue); 
 }
@@ -42,12 +42,11 @@ a {
 	text-underline-offset: 0.15em;
 }
 
-h1, h2, h3, h4, p { 
+h1, h2, h3, h4 { 
 	overflow: hidden; 
+	font-weight: 400; 
 	text-overflow: ellipsis;
 }
-
-h1, h2, h3, h4 { font-weight: 400; }
 :is(h1, h2, h3, h4, p, ul, li) + :is(h1, h2, h3, h4) { margin-top: 1.2em; }
 
 h1 { font-size: 3em; }

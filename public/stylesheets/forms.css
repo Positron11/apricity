@@ -24,14 +24,18 @@ textarea {
 	line-height: 1.5em;
 }
 
-button {
+button, .Button {
+	display: block;
 	cursor: pointer;
 	color: var(--bg);
 	line-height: 1em;
 	font-weight: 500;
 	padding: 0.7em 1em;
+	white-space: nowrap;
 	border-radius: 0.2em;
+	text-decoration: none;
 	background-color: var(--fg);
+	border: 1px dotted #00000055;
 }
-button[type="submit"] { background-color: var(--green); }
-button.mDanger { background-color: var(--red); }
+button[type="submit"], .Button { background-color: var(--green); }
+:is(button, .Button).mDanger { background-color: var(--red); }
