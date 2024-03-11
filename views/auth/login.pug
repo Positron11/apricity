@@ -9,11 +9,11 @@ block content
 
 	form(method="post").Flexbox.mCol.mCmpSpacing 
 		div
-			label(for="UsernameField") #[b Username] #[+Error(errors, "username")]
+			label(for="UsernameField") #[b Username] #[span.tSmall.tRed: b &nbsp; #[u /!\] #{error ? "Incorrect username..." : null}]
 			input#UsernameField(type="text", name="username")
 
 		div
-			label(for="PasswordField") #[b Password] #[+Error(errors, "password")]
+			label(for="PasswordField") #[b Password] #[span.tSmall.tRed: b &nbsp; #[u /!\] #{error ? "...or password" : null}]
 			input#PasswordField(type="password", name="password")
 
 		button(type="submit").iAlignRight Log In

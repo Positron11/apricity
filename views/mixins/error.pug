@@ -2,4 +2,4 @@ mixin Error(errors, path)
 	if errors
 		- const error = errors.find(error => error.path == path)
 		if error
-			span.tSmall.tRed: b &nbsp;#{error.msg}
+			span.tSmall.tRed: b &nbsp; #[u /!\] #{error.msg}

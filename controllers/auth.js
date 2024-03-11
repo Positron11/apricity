@@ -50,9 +50,19 @@ exports.login_get = (req, res, next) => {
 	res.render("auth/login", { title: "Log In" });
 }
 
-exports.login_post = (req, res, next) => {
+exports.login_post = (err, req, res, next) => {
 	const returnTo = req.session.returnTo;
 	req.session.returnTo = undefined;
+
+	if (err) {
+		res.render("auth/login", { 
+			title: "Log In",
+			error: err 
+		}); 
+
+		return;
+	}
+
 	res.redirect(returnTo || "/");
 }
 
