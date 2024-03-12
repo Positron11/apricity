@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000px" height="360px" viewBox="0 0 1000 360" version="1.2">
+<g id="surface31590">
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 380 180 C 380 180 500 180 500 60 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 380 180 C 380 180 500 180 500 300 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 500 300 C 500 300 500 180 620 180 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 620 180 C 620 180 500 180 500 60 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 980 180 C 980 180 860 180 860 60 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 860 60 C 860 60 860 180 740 180 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 740 180 C 740 180 860 180 860 300 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 860 300 C 860 300 860 180 980 180 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 20 180 C 20 180 140 180 140 60 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 140 60 C 140 60 140 180 260 180 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 260 180 C 260 180 140 180 140 300 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 140 300 C 140 300 140 180 20 180 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 140 300 L 140 340 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 500 300 L 500 340 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 860 300 L 860 340 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 860 20 L 860 60 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 500 60 L 500 20 "/>
+<path style="fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke:#333;stroke-opacity:1;stroke-miterlimit:10;" d="M 140 20 L 140 60 "/>
+</g>
+</svg>

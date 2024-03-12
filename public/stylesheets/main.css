@@ -76,7 +76,21 @@ b, strong { font-weight: 500; }
 
 .Divider {
 	width: 100%;
+	position: relative;
 	border-top: 1px dotted;
+}
+.Divider::after {
+	left: 50%;
+	width: 3em;
+	content: "";
+	padding: 0.5em;
+	position: absolute;
+	background-size: contain;
+	background-color: var(--bg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url("../images/diamonds.svg");
+	transform: translate(-50%, -50%);
 }
 
 .Box {
