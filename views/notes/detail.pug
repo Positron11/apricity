@@ -18,7 +18,7 @@ block actions
 
 block content 
 	div
-		h1(lang="en")!= note.title
+		h1(lang="en").uBalanceText!= note.title
 		
 		- const date = new Date(note.published)
 		- const dateOptions = { year: "numeric", month: "long", day: "numeric" }

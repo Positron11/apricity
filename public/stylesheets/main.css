@@ -74,6 +74,8 @@ b, strong { font-weight: 500; }
     -webkit-line-clamp: var(--lines);
 }
 
+.uBalanceText { text-wrap: balance; }
+
 .Divider {
 	width: 100%;
 	position: relative;
