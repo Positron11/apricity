@@ -1,0 +1,15 @@
+.Comment > .main > .header { margin-bottom: 0.3em; }
+
+.Comment > .controls { margin-top: 0.5em; }
+
+.Comment > .editForm { margin-bottom: -2.5em; }
+.Comment:not(.sEditMode) > .editForm { display: none; }
+.Comment.sEditMode > .main > .body { display: none; }
+
+.Comment > .replies {
+	margin-top: 1em;
+	padding: 0 1.25em;
+	border-left: 1px dotted;
+}
+.Comment:not(.sReplyMode) > .replies.sEmpty { display: none; }
+.Comment:not(.sReplyMode) > .replies > .replyForm { display: none; }

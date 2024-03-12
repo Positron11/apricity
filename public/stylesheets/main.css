@@ -1,5 +1,4 @@
 :root {
-	--red: #f92672;
 	--gray: #757575;
 	--blue: #416788;
 	--green: #57886C;
@@ -14,8 +13,8 @@
 }
 
 :focus { 
-	outline-offset: 0.2em;
-	border-radius: 0.01em;
+	outline-offset: 0.2rem;
+	border-radius: 0.01rem;
 	outline: 1px dashed var(--blue); 
 }
 
@@ -73,6 +72,11 @@ b, strong { font-weight: 500; }
 	display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--lines);
+}
+
+.Divider {
+	width: 100%;
+	border-top: 1px dotted;
 }
 
 .Box {

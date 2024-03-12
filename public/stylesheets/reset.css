@@ -23,3 +23,5 @@ button {
 	font-family: inherit;
 	background-color: inherit;
 }
+
+form { margin: 0; }

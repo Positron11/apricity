@@ -1,0 +1,42 @@
+mixin Comment(comment)
+	.Comment(id=comment._id)
+		.main
+			.header.Flexbox.mMinSpacing.mVertCenter
+				if comment.author
+					b: i #{comment.author.username}
+				else 
+					b.tGray: i Deleted User
+						
+				- var date = new Date(comment.edited);
+				span.tGray.tSmall #{date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on #{date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}
+
+			.body!= comment.renderContent()
+
+		if user && comment.author && user._id.equals(comment.author._id)
+			form.editForm(action=`/notes/${note.slug}/comment/${comment._id}/edit`, method="post").Flexbox.mCol.mMinSpacing
+				textarea(name="content", rows="1", required="true")!= comment.content
+				button(type="submit").iAlignRight Edit
+
+		.controls.Flexbox.mMinSpacing 
+			if user
+				.Button.mLowPro(onclick="toggleCommentForm(this, 'Reply');", tabindex="0") Reply
+
+			if user && comment.author && user._id.equals(comment.author._id) 
+				.Button.mLowPro(onclick="toggleCommentForm(this, 'Edit');", tabindex="0") Edit 
+
+				form.deleteForm(action=`/notes/${note.slug}/comment/${comment._id}/delete`, method="post")
+					button(type="submit").mDanger.mLowPro Delete
+
+		.replies(class=comment.replies.length ? null : "sEmpty").Flexbox.mCol.mCmpSpacing
+			if user
+				form.replyForm(action=`/notes/${note.slug}/comment/create`, method="post").Flexbox.mCol.mMinSpacing
+					input(type="hidden", name="note", value=comment.note)
+					input(type="hidden", name="parent", value=comment._id)
+					input(type="hidden", name="author", value=user._id)
+
+					textarea(name="content", rows="2", required="true", placeholder=`Reply to ${comment.author ? comment.author.username : "deleted user"}...`)
+
+					button(type="submit") Reply
+			
+			for reply in comment.replies 
+				+Comment(reply)

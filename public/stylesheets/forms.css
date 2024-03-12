@@ -25,6 +25,7 @@ textarea {
 }
 
 button, .Button {
+	--btn-color: var(--green);
 	display: block;
 	cursor: pointer;
 	color: var(--bg);
@@ -34,8 +35,14 @@ button, .Button {
 	white-space: nowrap;
 	border-radius: 0.2em;
 	text-decoration: none;
-	background-color: var(--fg);
 	border: 1px dotted #00000055;
+	background-color: var(--btn-color);
 }
-button[type="submit"], .Button { background-color: var(--green); }
-:is(button, .Button).mDanger { background-color: var(--red); }
+:is(button, .Button).mDanger { --btn-color: var(--red); }
+:is(button, .Button).mLowPro {
+	color: var(--btn-color);
+	font-size: 0.85em;
+	border: 1px dotted;
+	padding: 0.3em 0.5em;
+	background-color: transparent;
+}

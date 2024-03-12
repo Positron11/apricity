@@ -1,5 +1,14 @@
 extends ../layout
 
+include ../mixins/comment.pug
+
+append stylesheets 
+	link(rel="stylesheet", href="/stylesheets/notes/detail.css")
+
+append scripts 
+	script(type="text/javascript", src="/javascripts/autosize.min.js", defer)
+	script(type="text/javascript", src="/javascripts/notes/detail.js", defer)
+
 block controlvars 
 	- var actions = true;
 
@@ -16,3 +25,25 @@ block content
 		p.tGray= date.toLocaleString("en-gb", dateOptions)
 
 	article!= note.renderContent()
+
+	.Divider
+
+	#Comments.Flexbox.mCol.mCmpSpacing
+		if user
+			form(action=`/notes/${note.slug}/comment/create`, method="post").Flexbox.mCol.mMinSpacing
+				input(type="hidden", name="note", value=note._id)
+				input(type="hidden", name="author", value=user._id)
+				
+				textarea(name="content", rows="3", required="true", placeholder=note.comments.length ? "Join the discussion." : "Start the discussion.")
+				
+				button(type="submit").iAlignRight Comment
+
+		else 
+			div
+				p.tGray #[a(href=`/login?next=${note.url}#Comments`, style="font-size: 2.5em") Log in] &nbsp; or #[a(href=`/register?next=${note.url}#Comments`) Register]
+				p.tGray= note.comments.length ? "To join the discussion." : "To start the discussion."
+
+		if note.comments.length
+			.Flexbox.mCol.mCmpSpacing
+				for comment in note.comments 
+					+Comment(comment)

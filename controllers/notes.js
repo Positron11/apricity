@@ -29,8 +29,11 @@ exports.index = (req, res, next) => {
 }
 
 exports.detail = (req, res, next) => {
-	Note.findOne({ slug: req.params.slug })
-	.then(note => {
+	Note.findOne({ slug: req.params.slug }).populate({ 
+		path: "comments", 
+		match: { parent: undefined }, 
+		options: { sort: { created_date: -1 } } 
+	}).then(note => {
 		if (note === null) {
 			const error = new Error("This note does not exist");
 			error.status = 404;
