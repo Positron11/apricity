@@ -1,6 +1,6 @@
 .Comment > .main > .header { margin-bottom: 0.3em; }
 
-.Comment > .controls { margin-top: 0.5em; }
+.Comment > .controls { margin-top: 0.6em; }
 
 .Comment > .editForm { margin-bottom: -2.5em; }
 .Comment:not(.sEditMode) > .editForm { display: none; }
@@ -8,7 +8,7 @@
 
 .Comment > .replies {
 	margin-top: 1em;
-	padding: 0 1.25em;
+	padding: 0.75em 0 0 1.25em;
 	border-left: 1px dotted;
 }
 .Comment:not(.sReplyMode) > .replies.sEmpty { display: none; }
