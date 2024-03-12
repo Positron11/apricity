@@ -54,20 +54,17 @@ exports.login_get = (req, res, next) => {
 	res.render("auth/login", { title: "Log In" });
 }
 
-exports.login_post = (err, req, res, next) => {
+exports.login_success_post = (req, res, next) => {
 	const returnTo = req.session.returnTo;
 	req.session.returnTo = undefined;
-
-	if (err) {
-		res.render("auth/login", { 
-			title: "Log In",
-			error: err 
-		}); 
-
-		return;
-	}
-
 	res.redirect(returnTo || "/");
+}
+
+exports.login_error_post = (err, req, res, next) => {
+	res.render("auth/login", { 
+		title: "Log In",
+		error: err 
+	});
 }
 
 exports.logout = (req, res, next) => {
