@@ -24,6 +24,8 @@ block content
 		- const dateOptions = { year: "numeric", month: "long", day: "numeric" }
 		p.tGray= date.toLocaleString("en-gb", dateOptions)
 
+	.Divider
+
 	article!= note.renderContent()
 
 	.Divider
