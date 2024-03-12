@@ -3,6 +3,22 @@ extends layout
 block content
 	div
 		h1 Error #{status}
-		p.tGray Error message: #{message}
+		p.tGray #{message}.
 
-	img(src="/images/flower-3.svg", width="150px")
+	if status == "404"
+		div 
+			p
+				| "All that is gold does not glitter, #[br]
+				| Not all those who wander are lost; #[br]
+
+			p
+				| The old that is strong does not wither, #[br]
+				| Deep roots are not reached by the frost"
+
+			p.tGray.tSmall: i - J. R. R. Tolkien
+
+	if status == "403"
+		div
+			p "The road that leads to my private residence is forbidden to all. Except for those who are invited. And those who are not invited, but come anyway."
+
+			p.tGray.tSmall: i - J. R. R. Tolkien
