@@ -3,11 +3,14 @@ extends ../layout
 append stylesheets 
 	link(rel="stylesheet" href="/stylesheets/forms.css")
 
+append scripts
+	script(type="text/javascript", src="/javascripts/forms.js", defer)
+
 block content 
 	div 
 		h1 Delete 
 		p.tGray Are you sure you want to delete "!{note.title}"?
 
-	form(method="post").Flexbox.mVertCenter.mCmpSpacing 
-		a(href=`/notes/${note.slug}`) Go Back
-		button(type="submit").mDanger Delete
+	form(method="post").Flexbox.mVertCenter.mMinSpacing
+		input(type="text", required, pattern!=note.title, placeholder="Type note title to confirm...", data-for="DeleteSubmit").jPatternInput
+		button#DeleteSubmit(type="submit").jPatternMatchRequired.mDanger Delete
