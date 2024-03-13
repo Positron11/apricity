@@ -38,12 +38,15 @@ button, .Button {
 	border: 1px dotted #00000055;
 	background-color: var(--btn-color);
 }
+
 button[type="submit"] { --btn-color: var(--green); }
 :is(button, .Button).mDanger { --btn-color: var(--red); }
-:is(button, .Button).mLowPro {
-	color: var(--btn-color);
+
+:is(button, .Button).mTiny {
 	padding: 0.3em;
 	font-size: 0.8em;
+	font-weight: 400;
+	color: var(--btn-color);
 	background-color: transparent;
 	border: 1px solid color-mix(in srgb, var(--btn-color) 30%, transparent);
 }

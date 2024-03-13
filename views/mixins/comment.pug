@@ -19,13 +19,13 @@ mixin Comment(comment)
 
 		if user
 			.controls.Flexbox.mMinSpacing 
-				.Button.mLowPro(onclick="toggleCommentForm(this, 'Reply');", tabindex="0") Reply
+				.Button.mTiny(onclick="toggleCommentForm(this, 'Reply');", tabindex="0") Reply
 
 				if comment.author && user._id.equals(comment.author._id) 
-					.Button.mLowPro(onclick="toggleCommentForm(this, 'Edit');", tabindex="0") Edit 
+					.Button.mTiny(onclick="toggleCommentForm(this, 'Edit');", tabindex="0") Edit 
 
 					form.deleteForm(action=`/notes/${note.slug}/comment/${comment._id}/delete`, method="post")
-						button(type="submit").mDanger.mLowPro Delete
+						button(type="submit").mDanger.mTiny Delete
 
 		.replies(class=comment.replies.length ? null : "sEmpty").Flexbox.mCol.mCmpSpacing
 			if user
