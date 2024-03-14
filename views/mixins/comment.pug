@@ -19,10 +19,14 @@ mixin Comment(comment)
 
 		if user
 			.controls.Flexbox.mMinSpacing 
-				.Button.mTiny(onclick="toggleCommentForm(this, 'Reply');", tabindex="0") Reply
+				.Button.replyBtn.mTiny(onclick="toggleCommentForm(this, 'Reply');", tabindex="0") 
+					span.cancelText Cancel 
+					span Reply
 
 				if comment.author && user._id.equals(comment.author._id) 
-					.Button.mTiny(onclick="toggleCommentForm(this, 'Edit');", tabindex="0") Edit 
+					.Button.editBtn.mTiny(onclick="toggleCommentForm(this, 'Edit');", tabindex="0")
+						span.cancelText Cancel 
+						span Edit
 
 					form.deleteForm(action=`/notes/${note.slug}/comment/${comment._id}/delete`, method="post")
 						button(type="submit").mDanger.mTiny Delete

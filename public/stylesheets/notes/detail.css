@@ -4,7 +4,12 @@
 
 .Comment > .editForm { margin-bottom: -2.5em; }
 .Comment:not(.sEditMode) > .editForm { display: none; }
+
 .Comment.sEditMode > .main > .body { display: none; }
+
+.Comment:not(.sEditMode) > .controls > .editBtn > .cancelText { display: none; }
+
+.Comment.sEditMode > .controls > :is(.replyBtn, .deleteForm) { display: none; }
 
 .Comment > .replies {
 	margin-top: 1em;
@@ -12,4 +17,7 @@
 	border-left: 1px dotted;
 }
 .Comment:not(.sReplyMode) > .replies.sEmpty { display: none; }
+
 .Comment:not(.sReplyMode) > .replies > .replyForm { display: none; }
+
+.Comment:not(.sReplyMode) > .controls > .replyBtn > .cancelText { display: none; }
