@@ -65,6 +65,8 @@ b, strong { font-weight: 500; }
 .tBig { font-size: 1.3em; }
 .tSmall { font-size: 0.85em; }
 
+article { max-width: 70ch; }
+
 .uTruncateLines {
 	overflow: hidden;
 	display: -webkit-box;
