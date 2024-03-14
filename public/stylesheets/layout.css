@@ -30,10 +30,22 @@
 	padding-bottom:var(--cmp-spacing);
 }
 @media only screen and (max-width: 1000px) {#Topbar { margin-bottom: var(--min-spacing); }}
-@media only screen and (max-width: 850px) {#Topbar { justify-content: space-between; }}
 
 #Hero .name { margin-left: 0.5em; }
 #Hero .title { font-size: 2.5em; }
+
+
+@media only screen and (max-width: 600px) {#Authentication { margin-bottom: 1.4em; }}
+#Username { width: 7rem; }
+
+marquee {
+	background-image: repeating-linear-gradient(45deg, #00000015 0, #00000015 1px, transparent 0, transparent 50%);
+	background-size: 9px 9px;
+}
+marquee > * {
+	padding: 0 0.5ch;
+	background-color: var(--bg);
+}
 
 #Definition { margin-top: 0.6em; }
 #Definition > .phonetic { letter-spacing: 0.05em; }

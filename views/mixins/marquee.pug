@@ -1,0 +1,9 @@
+mixin Marquee(direction)
+	marquee(
+		onmouseover="this.stop()", 
+		onmouseout="this.start()", 
+		scrollamount=3, 
+		direction=direction ? direction : "left"
+	)&attributes(attributes)
+		
+		block

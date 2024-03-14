@@ -1,3 +1,5 @@
+include ./mixins/marquee.pug
+
 html(lang="en") 
 	head 
 		meta(charset="utf-8")
@@ -35,18 +37,27 @@ html(lang="en")
 		#Page 
 			header#Topbar
 				#Hero.Flexbox.mSpaceBtwn
-					div
+					div.iAlignBtm
 						.name.tSmall Aarush Kumbhakern's
 						.title Apricity
 
-					#Authentication
+					#Authentication.Box.iAlignTop
 						if user
-							form#Logout(action=`/logout?next=${url}`, method="post").iAlignRight
-								button(type="submit").mDanger Log Out
+							.Flexbox.mCol.mMinSpacing
+								.Flexbox.mMinspacing
+									a(href="/account") Account
+
+									form#Logout(action=`/logout?next=${url}`, method="post").iAlignRight
+										button(type="submit").mTiny.mDanger Log Out
+							
+								#Username.Flexbox
+									i.tSmall.tGray Hello,&nbsp;&nbsp;
+									+Marquee: i.tSmall.tGray= user.username
+						
 						else
-							.Box #[a(href=`/login?next=${url}`): b Log In] / #[a(href=`/register?next=${url}`) Register]
+							div #[a(href=`/login?next=${url}`): b Log In] / #[a(href=`/register?next=${url}`) Register]
 				
-				#Definition.tGray.tSmall [#[span.phonetic əpɹɪsəti]] #[i n.] The warmth of the winter sun.
+				#Definition.tSmall.tGray #[b A·pri·ci·ty] #[span.phonetic [əpɹɪsəti]] #[i n.] The warmth of the winter sun.
 
 
 			#Navbar.Flexbox.mCol.mCmpSpacing
@@ -69,7 +80,15 @@ html(lang="en")
 						.label Actions
 						.links.Flexbox.mMinSpacing: block actions
 
-			#Sidebar: block sidebar
+			#Sidebar.Flexbox.mCol
+				//- .Box: img(src="/images/fireplace-3.gif", alt="")
+
+				//- .Box.mRoomy
+				//- 	.label 
+				//- 		| Latest Update 
+				//- 		span(style="font-weight: 400").tSmall.tGray &nbsp;· 15 March
+
+				//- 	p.tSmall Made the website, pretty much - you can comment and stuff, don't worry about accounts and allat cause that's never happening but besides that pretty much good to go.
 
 			main#Content.Flexbox.mCol.mStdSpacing: block content
 
