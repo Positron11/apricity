@@ -1,14 +1,14 @@
 mixin Comment(comment)
 	.Comment(id=comment._id)
 		.main
-			.header.Flexbox.mMinSpacing.mVertCenter
+			.header.Flexbox.mMinSpacing.mVertCenter.mWrap
 				if comment.author
 					b: i #{comment.author.username}
 				else 
 					b.tGray: i Deleted User
 						
 				- var date = new Date(comment.edited);
-				span.tGray.tSmall #{date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} on #{date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}
+				span.tGray.tSmall #{date.toLocaleTimeString("en-us", { hour: "numeric", minute: "numeric" })} · #{date.toLocaleDateString("en-us", { year:"numeric", month:"long", day:"numeric"})}
 
 			.body!= comment.renderContent()
 
