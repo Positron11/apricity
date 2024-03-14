@@ -76,6 +76,16 @@ article { max-width: 70ch; }
 
 .uBalanceText { text-wrap: balance; }
 
+marquee {
+	background-image: repeating-linear-gradient(45deg, #00000015 0, #00000015 1px, transparent 0, transparent 50%);
+	background-size: 9px 9px;
+
+}
+marquee > * {
+	padding: 0 0.5ch;
+	background-color: var(--bg);
+}
+
 .Divider {
 	width: 100%;
 	position: relative;
