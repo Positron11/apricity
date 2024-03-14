@@ -23,9 +23,9 @@ block content
 			for note in notes 
 				.NotePreview
 					- const date = new Date(note.published)
-					- const dateOptions = { year: "numeric", month: "short", day: "numeric" }
+					- const dateOptions = { year: "numeric", month: "long", day: "numeric" }
 					
-					p #[b: a(href=`/notes/${note.slug}`)!= note.title] &nbsp; #[span.tSmall.tGray Published on #{date.toLocaleString("en-gb", dateOptions)}]
+					p #[b: a(href=`/notes/${note.slug}`)!= note.title] &nbsp; #[span.date.tSmall.tGray #{date.toLocaleString("en-gb", dateOptions)}]
 					
 					p(align="justify").uTruncateLines(style="--lines: 3")!= note.renderPreview()
 		

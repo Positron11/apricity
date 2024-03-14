@@ -11,3 +11,5 @@
 	background-color: var(--bg);
 	transform: translateY(-1em);
 }
+
+.NotePreview .date { white-space: nowrap; }
