@@ -26,8 +26,7 @@ block content
 					- const dateOptions = { year: "numeric", month: "long", day: "numeric" }
 					
 					p #[b: a(href=`/notes/${note.slug}`)!= note.title] &nbsp; #[span.date.tSmall.tGray #{date.toLocaleString("en-gb", dateOptions)}]
-					
-					p(align="justify").uTruncateLines(style="--lines: 3")!= note.renderPreview()
+					p.uTruncateLines(style="--lines: 3")!= note.renderPreview()
 		
 		else 
 			p.tGray Nothing to see here yet...
