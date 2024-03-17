@@ -13,6 +13,6 @@ function toggleCommentForm(button, action) {
 
 function resetComments() {
 	Array.from(document.getElementsByClassName("Comment")).forEach(element => {
-		element.classList.remove("sReplyMode", "sEditMode");
+		element.classList.remove("sReplyMode", "sEditMode", "sDeleteMode");
 	});
 }

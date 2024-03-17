@@ -9,7 +9,7 @@
 
 .Comment:not(.sEditMode) > .controls > .editBtn > .cancelText { display: none; }
 
-.Comment.sEditMode > .controls > :is(.replyBtn, .deleteForm) { display: none; }
+.Comment.sEditMode > .controls > :is(.replyBtn, .deleteBtn) { display: none; }
 
 .Comment > .replies {
 	margin-top: 1em;
@@ -21,3 +21,9 @@
 .Comment:not(.sReplyMode) > .replies > .replyForm { display: none; }
 
 .Comment:not(.sReplyMode) > .controls > .replyBtn > .cancelText { display: none; }
+
+.Comment.sReplyMode > .controls > :is(.editBtn, .deleteBtn) { display: none; }
+
+.Comment:not(.sDeleteMode) > .controls > .deleteForm { display: none; }
+
+.Comment.sDeleteMode > .controls > :is(.replyBtn, .editBtn, .deleteBtn) { display: none; }

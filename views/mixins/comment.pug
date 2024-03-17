@@ -28,7 +28,11 @@ mixin Comment(comment)
 						span.cancelText Cancel 
 						span Edit
 
-					form.deleteForm(action=`/notes/${note.slug}/comment/${comment._id}/delete`, method="post")
+					.Button.deleteBtn(onclick="toggleCommentForm(this, 'Delete');", tabindex="0").mTiny.mDanger Delete
+
+					form.deleteForm(action=`/notes/${note.slug}/comment/${comment._id}/delete`, method="post").Flexbox.mMinSpacing.mVertCenter
+						.tSmall.tGray Are you sure?
+						.Button(onclick="toggleCommentForm(this, 'Delete');", tabindex="0").mTiny Cancel
 						button(type="submit").mDanger.mTiny Delete
 
 		.replies(class=comment.replies.length ? null : "sEmpty").Flexbox.mCol.mCmpSpacing
