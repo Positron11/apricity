@@ -71,3 +71,62 @@ exports.logout = (req, res, next) => {
 	req.logout();
 	res.redirect(req.query.next);
 }
+
+exports.account_get = (req, res, next) => {
+	if (req.query.next) { req.session.returnTo = req.query.next }
+	res.render("auth/account", { 
+		title: "Account" 
+	});
+}
+
+exports.update_email = (req, res, next) => {
+	req.user.updateOne({ email: req.body.email }).then(() => {
+		res.redirect("/account#EmailForm");
+	});
+}
+
+exports.update_password = [
+	body("oldpass").custom(async (value, { req, loc, path }) => {
+		const error = (await req.user.authenticate(value)).error;
+		return error ? Promise.reject("Incorrect old password") : true;
+	}),
+	body("newpass", "Password too short - length > 7").isLength({ min: 8 }),
+	body("confirmpass").custom((value, {req, loc, path}) => {
+		return value == req.body.newpass || Promise.reject("Old pass. ≠ new pass.");
+	}),
+
+	(req, res, next) => {
+		const errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			req.session.errors = errors.array();
+			res.redirect("/account#PasswordForm");
+			return;
+		}
+
+		req.user.changePassword(req.body.oldpass, req.body.newpass).then(() => {
+			res.redirect("/account"); 
+		});
+	}
+]
+
+exports.delete_user = [
+	body("password").custom(async (value, { req, loc, path }) => {
+		const error = (await req.user.authenticate(value)).error;
+		return error ? Promise.reject("Incorrect old password") : true;
+	}),
+
+	(req, res, next) => {
+		const errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+			req.session.errors = errors.array();
+			res.redirect("/account#SuicideForm");
+			return;
+		}
+
+		req.user.deleteOne().then(() => {
+			res.redirect("/"); 
+		});
+	}
+]

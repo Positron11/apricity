@@ -2,6 +2,7 @@ label { display: block; }
 
 input[type="text"], 
 input[type="password"], 
+input[type="email"], 
 textarea {
 	min-width: 0;
 	max-width: 100%;
@@ -9,9 +10,10 @@ textarea {
 	border: 1px dotted;
 	border-radius: 0.2em;
 }
-label + :is(input[type="text"], input[type="password"], textarea) { margin-top: 0.5em; }
+label + :is(input[type="text"], input[type="password"], input[type="email"], textarea) { margin-top: 0.5em; }
 
 input[type="text"], 
+input[type="email"], 
 input[type="password"] {
 	width: 100%;
 	max-width: 20em;

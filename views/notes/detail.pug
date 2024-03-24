@@ -24,11 +24,11 @@ block content
 		- const dateOptions = { year: "numeric", month: "long", day: "numeric" }
 		p.tGray= date.toLocaleString("en-gb", dateOptions)
 
-	.Divider
+	.Divider.mFancy
 
 	article!= note.renderContent()
 
-	.Divider
+	.Divider.mFancy
 
 	#Comments.Flexbox.mCol.mCmpSpacing
 		if user

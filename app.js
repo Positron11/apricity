@@ -10,6 +10,7 @@ const session = require("cookie-session");
 const url = require("url");
 
 const authMiddleware = require("./middleware/auth_middleware");
+const formMiddleware = require("./middleware/form_middleware");
 
 const authRouter = require("./routes/auth");
 const indexRouter = require("./routes/index");
@@ -45,6 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(authMiddleware.sessionAuthData);
+app.use(formMiddleware.formErrorData);
 
 app.use(function(req, res, next) {
 	res.locals.url = url.parse(req.originalUrl || req.url).pathname;

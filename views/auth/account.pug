@@ -1,0 +1,67 @@
+extends ../layout
+
+include ../mixins/marquee.pug
+include ../mixins/error
+
+block content 
+	.Flexbox.mCol
+		.div(style="margin-left: 0.5em") #{user.username}'s
+		h1 Account
+
+		p.tGray Manage your account and update your information.
+
+	.Divider.mFancy
+	
+	.Flexbox.mCol.mCmpSpacing 
+		#EmailForm
+			h2 Update Email ID 
+			p.tGray You're recommended to set one, if you've any interest in recovering your account in the event you forget your password.
+	
+		form(method="post", action="/account/update-email").Flexbox.mCol.mCmpSpacing 
+			div
+				label(for="EmailField") #[b New Email ID] #[+Error(errors, "email")]
+				input#EmailField(type="email", name="email", placeholder=user.email ? `${user.email}` : "", required)
+
+			.Flexbox.mStdSpacing
+				.Divider.iAlignBtm
+				
+				button(type="submit").iAlignRight Update
+
+	.Flexbox.mCol.mCmpSpacing 
+		#PasswordForm
+			h2 Change Password
+			p.tGray An option for the security-conscious, and the fickle of heart.
+	
+		form(method="post", action="/account/update-password").Flexbox.mCol.mCmpSpacing 
+			div
+				label(for="OldPasswordField") #[b Old Password] #[+Error(errors, "oldpass")]
+				input#OldPasswordField(type="password", name="oldpass")
+
+			div
+				label(for="NewPasswordField") #[b New Password] #[+Error(errors, "newpass")]
+				input#NewPasswordField(type="password", name="newpass")
+
+			div
+				label(for="ConfirmPasswordField") #[b Confirm New Password] #[+Error(errors, "confirmpass")]
+				input#ConfirmPasswordField(type="password", name="confirmpass")
+
+			.Flexbox.mStdSpacing
+				.Divider.iAlignBtm
+				
+				button(type="submit").iAlignRight Update
+
+	.Flexbox.mCol.mCmpSpacing 
+		#SuicideForm
+			h2 Delete Account
+			p.tGray The end of the line - approach with caution. Any comments you have not manually deleted will remain up, under the "Deleted User" ID.
+	
+		form(method="post", action="/account/delete-user").Flexbox.mCol.mCmpSpacing 
+			div
+				label(for="UsernameField") #[b Confirm Username] #[+Error(errors, "username")]
+				input#UsernameField(type="text", name="username", pattern=user.username, data-for="SuicideSubmit").jPatternInput
+			
+			div
+				label(for="PasswordField") #[b Confirm Password] #[+Error(errors, "password")]
+				input#PasswordField(type="password", name="password")
+
+			button#SuicideSubmit(type="submit").mDanger.jPatternMatchRequired.iAlignRight Delete
