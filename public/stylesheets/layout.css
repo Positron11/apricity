@@ -1,5 +1,8 @@
 #Page {
+	margin: auto;
 	display: grid;
+	max-width: 1200px;
+	padding: 5em clamp(0px, 10vw, 5em);
 	grid-template: 
 		"topbar topbar topbar"
 		"navbar content sidebar"

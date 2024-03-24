@@ -23,11 +23,8 @@
 html { scroll-padding-top: 1em; }
 
 body { 
-	margin: auto;
 	color: var(--fg);
-	max-width: 1120px;
 	background-color: var(--bg);
-	padding: 5em clamp(0px, 10vw, 5em);
 }
 
 ::selection {
