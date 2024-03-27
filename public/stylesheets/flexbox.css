@@ -1,5 +1,5 @@
 .Flexbox { display: flex; }
-.FlexBox.mCol { flex-direction: column; }
+.Flexbox.mCol { flex-direction: column; }
 
 .Flexbox.mWrap { flex-wrap: wrap; }
 .Flexbox.mWrapRev { flex-wrap: wrap-reverse; }
