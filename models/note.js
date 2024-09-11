@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const slugify = require("slugify");
 const MarkdownIt = require("markdown-it");
 const plainText = require('markdown-it-plain-text');
+const katex = require("@traptitech/markdown-it-katex");
 const mongoosePaginate = require("mongoose-paginate-v2");
 const he = require("he");
 
@@ -11,6 +12,7 @@ const Comment = require("./comment")
 
 const md = new MarkdownIt();
 md.use(plainText);
+md.use(katex);
 
 const NoteSchema = new Schema({
 	slug: { type: String, required: true, unique: true },
@@ -47,7 +49,7 @@ NoteSchema.pre("findOneAndDelete", async function(next) {
 });
 
 NoteSchema.methods.renderContent = function() {
-	return md.render(this.content);
+	return md.render(he.decode(this.content));
 }
 
 NoteSchema.methods.renderPreview = function() {

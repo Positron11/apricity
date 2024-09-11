@@ -116,3 +116,7 @@ marquee > * {
 	font-size: 0.85em;
 	margin-bottom: 1rem;
 }
+
+.katex {
+	font-size: 1em !important;
+}
