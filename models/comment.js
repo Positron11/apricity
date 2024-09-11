@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 const MarkdownIt = require("markdown-it");
+const katex = require("@traptitech/markdown-it-katex");
+const he = require("he");
+
 
 const Schema = mongoose.Schema;
 
 const md = new MarkdownIt();
+md.use(katex);
 
 const CommentSchema = new Schema({
 	author: { type: Schema.Types.ObjectId, ref: "User", autopopulate: { select: "username" } },
@@ -30,7 +34,7 @@ CommentSchema.pre("deleteOne", { document: true, query: false }, async function(
 });
 
 CommentSchema.methods.renderContent = function() {
-	return md.render(this.content);
+	return md.render(he.decode(this.content));
 }
 
 module.exports = mongoose.model("Comment", CommentSchema);
